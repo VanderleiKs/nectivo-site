@@ -1,0 +1,11 @@
+// Mescle com o wrangler.jsonc gerado pelo create-cloudflare (mantenha os caminhos main/assets dele).
+{
+  "name": "nectivo",
+  "main": "./dist/nectivo/server/server.mjs",
+  "compatibility_date": "2026-10-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "assets": { "binding": "ASSETS", "directory": "./dist/nectivo/browser" },
+  "d1_databases": [
+    { "binding": "DB", "database_name": "nectivo", "database_id": "COLE_O_ID_AQUI", "migrations_dir": "migrations" }
+  ]
+}

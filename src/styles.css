@@ -1,0 +1,23 @@
+@import "tailwindcss";
+@import "@openng/icons/openng-icons.css";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", system-ui, sans-serif;
+  --color-brand: #1d6bff;
+  --color-brand-dark: #0b4fd6;
+  --color-ink: #0d1a33;
+  --color-navy: #060f22;
+  --color-mist: #f3f6fc;
+}
+
+@layer base {
+  html { scroll-behavior: smooth; scroll-padding-top: 76px; }
+  body { @apply bg-mist font-sans text-ink antialiased; }
+  :focus-visible { outline: 3px solid #7fb0ff; outline-offset: 2px; }
+}
+
+@layer components {
+  .field { @apply rounded-xl border-2 border-slate-200 bg-mist px-3.5 py-3 font-normal outline-none focus:border-brand; }
+  .btn { @apply inline-flex items-center justify-center gap-2 rounded-xl bg-brand px-5 py-3 font-bold text-white disabled:cursor-not-allowed disabled:opacity-45; }
+  .btn-out { @apply rounded-xl border-2 border-brand px-5 py-3 font-bold text-brand; }
+}
