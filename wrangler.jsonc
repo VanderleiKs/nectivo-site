@@ -5,7 +5,7 @@
   "compatibility_date": "2026-10-01",
   "compatibility_flags": ["nodejs_compat"],
   "assets": { "binding": "ASSETS", "directory": "./dist/nectivo/browser" },
-  "d1_databases": [
+ /*  "d1_databases": [
     { "binding": "DB", "database_name": "nectivo", "database_id": "COLE_O_ID_AQUI", "migrations_dir": "migrations" }
-  ]
+  ] */
 }
