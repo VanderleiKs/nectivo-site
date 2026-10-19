@@ -11,7 +11,7 @@ Nectivo is a Brazilian web application for a site-building service. It's an Angu
 ```bash
 npm install                    # install dependencies
 npm run typecheck              # TypeScript type-check (no emit)
-npm start                      # ng serve (dev server, no D1 — API returns 503)
+npm start                      # ng serve (dev server)
 npm run preview                # build + wrangler dev (full SSR + API + local D1)
 npm run deploy                 # build + wrangler deploy to Cloudflare
 
@@ -24,14 +24,22 @@ There are no tests or linter configured.
 ## Architecture
 
 **Frontend (Angular 22):**
-- `src/app/home/home.ts` — main landing page with pricing plans and checkout button
-- `src/app/checkout/checkout-dialog.ts` — modal checkout form
-- `src/app/checkout/orders.service.ts` — HTTP client for `/api/orders`
-- `src/shared/plans.ts` — shared plan definitions, pricing logic, and types (`Plan`, `PlanId`, `Period`, `Pay`)
+- `src/shared/plans.ts` — configuração comercial centralizada: as duas soluções (landing page e site institucional), preços, divisão do pagamento 50/50, itens do plano mensal, itens orçados à parte, regras de cancelamento e o número do WhatsApp. Ajuste preços e textos comerciais aqui.
+- `src/app/app.ts` — layout raiz (`layout/site-header.ts`, `<router-outlet>`, `layout/site-footer.ts`)
+- `src/app/app.routes.ts` — rotas: `/`, `/landing-page`, `/site-institucional`, `/como-funciona`, `/exemplos`, `/duvidas`, `/contato` (todas pré-renderizadas)
+- `src/app/home/` — página inicial (hero + cards das duas soluções)
+- `src/app/solution/solution.ts` — página de detalhes compartilhada; o slug da solução vem do `data` da rota
+- `src/app/pages/` — como funciona, exemplos, dúvidas e contato
+- `src/app/ui/page-intro.ts` — breadcrumb + título das páginas internas
+- `src/app/ui/mockup-image.ts` — mockup da oficina com `srcset` (`public/mockup-oficina-{352,640}.webp` + `mockup-oficina.webp` de 1000px); usado no hero, nas páginas de detalhes e em exemplos. Cada uso define seu `sizes`.
+- `public/logos/`, `public/icons/` — logos (claro/escuro) e favicons
+
+O canal comercial é o WhatsApp (home → solução → detalhes → WhatsApp → proposta → contratação). Não há checkout, login ou painel administrativo.
 
 **Backend (Hono on Cloudflare Workers):**
-- `src/server.ts` — Hono app with two API routes (`/api/health`, `POST /api/orders`) plus Angular SSR catch-all. Exports `reqHandler` for the Angular CLI dev-server and a default Hono app for Wrangler.
-- `migrations/0001_init.sql` — D1 schema for the `orders` table
+- `src/server.ts` — Hono app com `/api/health`, `/llms.txt` (gerado em `src/llms.ts` a partir de `plans.ts`) mais o catch-all de SSR do Angular. Exporta `reqHandler` para o dev-server do Angular CLI e um app Hono padrão para o Wrangler.
+- `public/robots.txt` — arquivo estático
+- `migrations/0001_init.sql` — schema D1 da tabela `orders` (mantida para uso futuro; sem rota que a utilize hoje)
 
 **Build & Deploy:**
 - `angular.json` — Angular CLI config with `@angular/build:application` builder, SSR platform set to `cloudflare`
@@ -39,8 +47,7 @@ There are no tests or linter configured.
 - `.postcssrc.json` — Tailwind CSS v4 via PostCSS
 
 **Key conventions:**
-- All prices are stored and calculated in cents (integers). The server always computes totals; client-sent totals are never trusted.
+- All prices are stored in cents (integers) in `src/shared/plans.ts`.
 - Language is Portuguese (Brazilian) for UI strings and comments.
 - TypeScript ~6.0.3 is required (Angular 22 does not support TS 7).
-- `@openng/icons` is pinned to `"latest"` — after `npm install`, fix it to a specific version.
 - Optimus UI (`@openng/optimus-ui`) provides the component library; `ng add @openng/optimus-ui` is needed only if adding new Optimus components.
