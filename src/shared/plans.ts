@@ -36,7 +36,7 @@ export const BRAND = {
 
 // Número comercial (somente dígitos, com DDI + DDD).
 // ATENÇÃO: substitua pelo número real antes de publicar.
-export const WHATSAPP_NUMBER = "5551999999999";
+export const WHATSAPP_NUMBER = "5551997147059";
 
 export const waLink = (message: string) =>
   `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
