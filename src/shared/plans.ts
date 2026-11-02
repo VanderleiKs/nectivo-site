@@ -36,7 +36,7 @@ export const BRAND = {
 
 // Número comercial (somente dígitos, com DDI + DDD).
 // ATENÇÃO: substitua pelo número real antes de publicar.
-export const WHATSAPP_NUMBER = "5551997147059";
+export const WHATSAPP_NUMBER = "5551920107584";
 
 export const waLink = (message: string) =>
   `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
@@ -57,32 +57,33 @@ export const PLANS: Plan[] = [
     name: "Landing page",
     article: "a landing page",
     icon: "pi pi-file",
-    tagline: "Sua empresa na internet, de forma simples e profissional.",
+    tagline: "Apresente seu negócio com uma página profissional, objetiva e personalizada.",
     description:
-      "Uma página personalizada para apresentar seu negócio, destacar seus serviços e facilitar o contato com novos clientes.",
+      "Uma página profissional para apresentar sua empresa, destacar seus diferenciais e transformar visitantes em oportunidades de contato.",
     highlights: [
-      { icon: "pi pi-pen-to-square", label: "Design profissional" },
-      { icon: "pi pi-mobile", label: "Layout responsivo" },
+      { icon: "pi pi-palette", label: "Design personalizado" },
+      { icon: "pi pi-mobile", label: "Adaptado a qualquer tela" },
       { icon: "pi pi-whatsapp", label: "WhatsApp integrado" },
       { icon: "pi pi-globe", label: "Domínio em seu nome" },
     ],
     summary: [
       "Página única personalizada",
       "Apresentação do seu negócio",
-      "WhatsApp, endereço e mapa",
-      "Redes sociais",
-      "Layout responsivo",
+      "Endereço e localização no Google Maps, quando aplicável.",
+      "Integração com WhatsApp",
+      "Links para redes sociais",
+      "Design responsivo",
       "Publicação e configuração do domínio",
     ],
     construction: [
       "Página única personalizada",
       "Apresentação da empresa e dos serviços",
       "Botão de contato pelo WhatsApp",
-      "Endereço e localização no mapa, quando aplicável",
+      "Endereço e localização no Google Maps, quando aplicável.",
       "Links para redes sociais",
-      "Layout responsivo para celular e computador",
-      "Configuração básica para mecanismos de busca",
-      "Publicação e configuração do domínio (no nome do cliente)",
+      "Design responsivo para celular, tablet e computador",
+      "Configuração inicial de SEO para mecanismos de busca.",
+      "Configuração e publicação no domínio registrado em seu nome.",
     ],
     setupCents: 29700,
     maintenanceCents: 3990,
@@ -94,22 +95,23 @@ export const PLANS: Plan[] = [
     name: "Site institucional",
     article: "o site institucional",
     icon: "pi pi-building",
-    tagline: "Mais espaço para apresentar sua empresa.",
+    tagline: "Apresente sua empresa, seus serviços e diferenciais com mais detalhes.",
     description:
-      "Um site com várias páginas para organizar suas informações, apresentar seus serviços e transmitir mais profissionalismo.",
+      "Um site com páginas organizadas para apresentar sua empresa, detalhar seus serviços e transmitir mais profissionalismo.",
     highlights: [
-      { icon: "pi pi-pen-to-square", label: "Design profissional" },
-      { icon: "pi pi-clone", label: "Várias páginas" },
+      { icon: "pi pi-palette", label: "Design personalizado" },
+      { icon: "pi pi-clone", label: "Estrutura completa" },
       { icon: "pi pi-whatsapp", label: "WhatsApp integrado" },
-      { icon: "pi pi-mobile", label: "Layout responsivo" },
+      { icon: "pi pi-mobile", label: "Adaptado a qualquer tela" },
     ],
     summary: [
       "Página inicial personalizada",
       "Páginas de serviços",
       "Página sobre a empresa",
       "Página de contato",
-      "WhatsApp e redes sociais",
-      "Layout responsivo",
+      "Integração com WhatsApp",
+      "Links para redes sociais",
+      "Design responsivo",
       "Publicação e configuração do domínio",
     ],
     construction: [
@@ -117,10 +119,11 @@ export const PLANS: Plan[] = [
       "Páginas de serviços",
       "Página sobre a empresa",
       "Página de contato",
-      "WhatsApp e redes sociais",
-      "Layout responsivo para celular e computador",
+      "Integração com WhatsApp",
+      "Links para redes sociais",
+      "Design responsivo para celular, tablet e computador",
       "Configuração básica para mecanismos de busca",
-      "Publicação e configuração do domínio (no nome do cliente)",
+      "Configuração e publicação no domínio registrado em seu nome.",
     ],
     setupCents: 89700,
     // Valor de referência, ainda sujeito à confirmação.
@@ -140,23 +143,23 @@ export const PAYMENT_SPLIT: { percent: number; title: string; text: string; note
   {
     percent: 50,
     title: "50% na contratação",
-    text: "Você faz o pagamento de 50% e iniciamos o projeto.",
+    text: "Você realiza o pagamento inicial e iniciamos o projeto.",
   },
   {
     percent: 0,
     title: "Desenvolvimento e revisão",
-    text: "Criamos o site e você acompanha a evolução, com revisões.*",
+    text: `Criamos seu site e você acompanha o desenvolvimento, com até ${REVISIONS} revisões incluídas na construção.`,
     note: REVISIONS_NOTE,
   },
   {
     percent: 50,
     title: "50% na aprovação final",
-    text: "Após a sua aprovação, você paga os outros 50% e o site é publicado.",
+    text: "Após sua aprovação, você realiza o pagamento restante e o site é publicado.",
   },
 ];
 
 /** Rótulo do valor mensal nos quadros de preço. */
-export const MONTHLY_LABEL = "Plano mensal";
+export const MONTHLY_LABEL = "Hospedagem e acompanhamento";
 
 /** As duas formas de contratar qualquer solução. */
 export const OPTIONS = {
@@ -182,12 +185,13 @@ export const NOT_INCLUDED = [
   "Criação de novas páginas",
   "Reformulação de layout",
   "Novas funcionalidades",
+  "Registro e renovação do domínio"
 ];
 
 export const CANCELLATION = [
-  "Você pode cancelar o plano mensal quando quiser, sem fidelidade.",
+  "Você pode cancelar a hospedagem e o acompanhamento quando quiser, sem multa ou fidelidade.",
   "A hospedagem e o suporte são encerrados conforme as condições contratadas.",
-  "Você recebe os arquivos do site para hospedá-lo onde preferir.",
+  "Você pode solicitar os arquivos do site e hospedá-lo onde preferir.",
   "O domínio continua registrado em seu nome.",
 ];
 

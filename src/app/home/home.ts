@@ -29,16 +29,32 @@ export class Home {
   protected readonly from = PLANS[0];
 
   protected readonly badges = [
-    { i: "pi pi-palette", t: "Design profissional" },
+    { i: "pi pi-palette", t: "Design personalizado" },
     { i: "pi pi-globe", t: "Domínio em seu nome" },
     { i: "pi pi-whatsapp", t: "Atendimento pelo WhatsApp" },
     { i: "pi pi-verified", t: "Hospedagem sem fidelidade" },
   ];
 
   protected readonly trust = [
-    { i: "pi pi-check-circle", t: "Processo simples", d: "e sem complicação" },
-    { i: "pi pi-comments", t: "Atendimento próximo", d: "pelo WhatsApp" },
-    { i: "pi pi-shield", t: "Seu domínio", d: "registrado em seu nome" },
-    { i: "pi pi-chart-bar", t: "Soluções para", d: "pequenos negócios" },
+    {
+      i: "pi pi-cog",
+      t: "Implantação completa",
+      d: "Cuidamos da criação do site, configuração técnica, SEO básico e presença no Google."
+    },
+    {
+      i: "pi pi-shield",
+      t: "Suporte e manutenção",
+      d: "Acompanhamento técnico, atualizações e suporte para manter sua presença digital funcionando."
+    },
+    {
+      i: "pi pi-globe",
+      t: "Seu domínio, sua marca",
+      d: "O domínio é registrado em seu nome. Você mantém a propriedade e o controle da sua identidade digital."
+    },
+    {
+      i: "pi pi-chart-line",
+      t: "Você cuida do negócio",
+      d: "Nós cuidamos da estrutura digital para que você possa dedicar mais tempo à sua empresa."
+    },
   ];
 }
